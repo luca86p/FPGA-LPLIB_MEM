@@ -1,0 +1,4 @@
+rundir_riviera/*
+!rundir_riviera/run_*
+!rundir_riviera/script_tcl
+rundir_riviera/script_wave
