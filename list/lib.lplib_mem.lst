@@ -1,0 +1,33 @@
+# -- lib.lplib_mem.lst
+# -- find ../hdl -type f
+
+
+# -- find ../hdl/ram -type f
+# ------------------------------------------------------------------------------
+
+# Synchronous RAM, single-port
+../hdl/ram/rtl/ram_sync_sp_nc.vhd
+../hdl/ram/rtl/ram_sync_sp_rf.vhd
+../hdl/ram/rtl/ram_sync_sp_wf.vhd
+
+# Synchronous RAM, simple dual-port, single-clock
+../hdl/ram/rtl/ram_sync_sdp_sc_nc.vhd
+../hdl/ram/rtl/ram_sync_sdp_sc_rf.vhd
+../hdl/ram/rtl/ram_sync_sdp_sc_wf.vhd
+
+# Synchronous RAM, simple dual-port, rd/wr-clock
+../hdl/ram/rtl/ram_sync_sdp_rwc_rf.vhd
+../hdl/ram/rtl/ram_sync_sdp_rwc_wf.vhd
+
+# Synchronous RAM, true dual-port, single-clock
+../hdl/ram/rtl/ram_sync_tdp_sc_rf.vhd
+../hdl/ram/rtl/ram_sync_tdp_sc_wf.vhd
+
+# Synchronous RAM, true dual-port, a/b-clock, read-first
+../hdl/ram/rtl/ram_sync_tdp_abc_rf.vhd
+
+
+# -- find ../hdl/fifo -type f
+# ------------------------------------------------------------------------------
+
+#../hdl/fifo/rtl/fifo_sync.vhd
