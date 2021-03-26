@@ -160,60 +160,186 @@ The synthesis **software** used are:
 |---|---|---|---|---|---|
 | ram_sync_sdp_sc_rf.vhd | 8 | 6 | 0 | 1. | A3PE600 |
 ```
+Report for cell ram_sync_sdp_sc_rf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                             CLKBUF         1       0.0        0.0
+                                GND         1       0.0        0.0
+                              INBUF        22       0.0        0.0
+                                INV         2       1.0        2.0
+                             OUTBUF         8       0.0        0.0
+                          RAM512X18         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             36                  2.0
+
 ```
 
 | vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
 |---|---|---|---|---|---|
 | ram_sync_sdp_sc_rf.vhd | 8 | 6 | 1 | 1. | A3PE600 |
 ```
+Report for cell ram_sync_sdp_sc_rf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                             CLKBUF         1       0.0        0.0
+                             DFN1C0         8       1.0        8.0
+                                GND         1       0.0        0.0
+                              INBUF        23       0.0        0.0
+                                INV         2       1.0        2.0
+                             OUTBUF         8       0.0        0.0
+                          RAM512X18         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             45                 10.0
 ```
 
 | vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
 |---|---|---|---|---|---|
 | ram_sync_sdp_sc_wf.vhd | 8 | 6 | 0 | 1. | A3PE600 |
 ```
+Report for cell ram_sync_sdp_sc_wf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                             CLKBUF         1       0.0        0.0
+                                GND         1       0.0        0.0
+                              INBUF        21       0.0        0.0
+                                INV         1       1.0        1.0
+                             OUTBUF         8       0.0        0.0
+                          RAM512X18         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             34                  1.0
 ```
 
 | vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
 |---|---|---|---|---|---|
 | ram_sync_sdp_sc_wf.vhd | 8 | 6 | 1 | 1. | A3PE600 |
 ```
+Report for cell ram_sync_sdp_sc_wf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                             CLKBUF         1       0.0        0.0
+                             DFN1C0         8       1.0        8.0
+                                GND         1       0.0        0.0
+                              INBUF        22       0.0        0.0
+                                INV         1       1.0        1.0
+                             OUTBUF         8       0.0        0.0
+                          RAM512X18         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             43                  9.0
 ```
 
 | vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
 |---|---|---|---|---|---|
 | ram_sync_sdp_sc_nc.vhd | 8 | 6 | 0 | 1. | A3PE600 |
 ```
+Report for cell ram_sync_sdp_sc_nc.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                             CLKBUF         1       0.0        0.0
+                                GND         1       0.0        0.0
+                              INBUF        22       0.0        0.0
+                                INV         1       1.0        1.0
+                               OR2A         1       1.0        1.0
+                             OUTBUF         8       0.0        0.0
+                          RAM512X18         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             36                  2.0
 ```
 
 | vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
 |---|---|---|---|---|---|
 | ram_sync_sdp_sc_nc.vhd | 8 | 6 | 1 | 1. | A3PE600 |
 ```
+Report for cell ram_sync_sdp_sc_nc.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                             CLKBUF         1       0.0        0.0
+                             DFN1C0         8       1.0        8.0
+                                GND         1       0.0        0.0
+                              INBUF        23       0.0        0.0
+                                INV         1       1.0        1.0
+                               OR2A         1       1.0        1.0
+                             OUTBUF         8       0.0        0.0
+                          RAM512X18         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             45                 10.0
 ```
 
 | vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
 |---|---|---|---|---|---|
 | ram_sync_sdp_rwc_rf.vhd | 8 | 6 | 0 | 1. | A3PE600 |
 ```
+Report for cell ram_sync_sdp_rwc_rf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                                GND         1       0.0        0.0
+                              INBUF        24       0.0        0.0
+                                INV         2       1.0        2.0
+                             OUTBUF         8       0.0        0.0
+                          RAM512X18         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             37                  2.0
 ```
 
 | vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
 |---|---|---|---|---|---|
 | ram_sync_sdp_rwc_rf.vhd | 8 | 6 | 1 | 1. | A3PE600 |
 ```
+Report for cell ram_sync_sdp_rwc_rf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                             CLKBUF         1       0.0        0.0
+                             DFN1C0         8       1.0        8.0
+                                GND         1       0.0        0.0
+                              INBUF        24       0.0        0.0
+                                INV         2       1.0        2.0
+                             OUTBUF         8       0.0        0.0
+                          RAM512X18         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             46                 10.0
 ```
 
 | vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
 |---|---|---|---|---|---|
 | ram_sync_sdp_rwc_wf.vhd | 8 | 6 | 0 | 1. | A3PE600 |
 ```
+Report for cell ram_sync_sdp_rwc_wf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                                GND         1       0.0        0.0
+                              INBUF        23       0.0        0.0
+                                INV         1       1.0        1.0
+                             OUTBUF         8       0.0        0.0
+                          RAM512X18         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             35                  1.0
 ```
 
 | vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
 |---|---|---|---|---|---|
 | ram_sync_sdp_rwc_wf.vhd | 8 | 6 | 1 | 1. | A3PE600 |
 ```
+Report for cell ram_sync_sdp_rwc_wf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                             CLKBUF         1       0.0        0.0
+                             DFN1C0         8       1.0        8.0
+                                GND         1       0.0        0.0
+                              INBUF        23       0.0        0.0
+                                INV         1       1.0        1.0
+                             OUTBUF         8       0.0        0.0
+                          RAM512X18         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             44                  9.0
 ```
 
 <br>
