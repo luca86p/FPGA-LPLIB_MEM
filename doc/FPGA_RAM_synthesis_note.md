@@ -344,6 +344,144 @@ Report for cell ram_sync_sdp_rwc_wf.rtl
 
 <br>
 
+## *True-dual-Port* Implementation Results
+
+The synthesis **software** used are:
+
+1. Libero SoC v11.9 SP5; Synplify Pro
+2. Xilinx Vivado v2019.1
+
+<br>
+
+| vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
+|---|---|---|---|---|---|
+| ram_sync_tdp_sc_rf.vhd | 8 | 6 | 0 | 1. | A3PE600 |
+
+**DEPRECATED: NO USE OF RAM512X18** 
+```
+Report for cell ram_sync_tdp_sc_rf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                               AOI1        60       1.0       60.0
+                               BUFF        36       1.0       36.0
+                             CLKBUF         1       0.0        0.0
+                             CLKINT         5       0.0        0.0
+                               DFN1       530       1.0      530.0
+                             DFN1E1        16       1.0       16.0
+                                GND         1       0.0        0.0
+                              INBUF        44       0.0        0.0
+                                MX2      2048       1.0     2048.0
+                               NOR2        10       1.0       10.0
+                              NOR2A        12       1.0       12.0
+                              NOR2B        54       1.0       54.0
+                              NOR3C       132       1.0      132.0
+                             OUTBUF        16       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL           2966               2898.0
+```
+| vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
+|---|---|---|---|---|---|
+| ram_sync_tdp_sc_rf.vhd | 8 | 6 | 1 | 1. | A3PE600 |
+
+**DEPRECATED: NO USE OF RAM512X18** 
+```
+Report for cell ram_sync_tdp_sc_rf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                               AOI1        60       1.0       60.0
+                               BUFF        36       1.0       36.0
+                             CLKBUF         1       0.0        0.0
+                             CLKINT         5       0.0        0.0
+                               DFN1       530       1.0      530.0
+                             DFN1C0        16       1.0       16.0
+                             DFN1E1        16       1.0       16.0
+                                GND         1       0.0        0.0
+                              INBUF        45       0.0        0.0
+                                MX2      2048       1.0     2048.0
+                               NOR2        10       1.0       10.0
+                              NOR2A        12       1.0       12.0
+                              NOR2B        54       1.0       54.0
+                              NOR3C       132       1.0      132.0
+                             OUTBUF        16       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL           2983               2914.0
+```
+| vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
+|---|---|---|---|---|---|
+| ram_sync_tdp_sc_wf.vhd | 8 | 6 | 0 | 1. | A3PE600 |
+
+**DEPRECATED: NO USE OF RAM512X18** 
+```
+Report for cell ram_sync_tdp_sc_wf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                               AOI1        64       1.0       64.0
+                               BUFF        32       1.0       32.0
+                             CLKBUF         1       0.0        0.0
+                             CLKINT         5       0.0        0.0
+                               DFN1       528       1.0      528.0
+                                GND         1       0.0        0.0
+                              INBUF        42       0.0        0.0
+                                MX2      2032       1.0     2032.0
+                               NOR2         4       1.0        4.0
+                              NOR2A         8       1.0        8.0
+                              NOR2B        75       1.0       75.0
+                              NOR3A         2       1.0        2.0
+                              NOR3B         4       1.0        4.0
+                              NOR3C        22       1.0       22.0
+                             OUTBUF        16       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL           2837               2771.0
+```
+| vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
+|---|---|---|---|---|---|
+| ram_sync_tdp_sc_wf.vhd | 8 | 6 | 1 | 1. | A3PE600 |
+
+**DEPRECATED: NO USE OF RAM512X18** 
+```
+Report for cell ram_sync_tdp_sc_wf.rtl
+                                          Cell usage:
+                               cell       count     area    count*area
+                               AOI1        47       1.0       47.0
+                               BUFF        36       1.0       36.0
+                             CLKBUF         1       0.0        0.0
+                             CLKINT         5       0.0        0.0
+                               DFN1       528       1.0      528.0
+                             DFN1C0        16       1.0       16.0
+                                GND         1       0.0        0.0
+                              INBUF        43       0.0        0.0
+                                MX2      2032       1.0     2032.0
+                               NOR2        23       1.0       23.0
+                              NOR2A        12       1.0       12.0
+                              NOR2B       114       1.0      114.0
+                              NOR3C        68       1.0       68.0
+                             OUTBUF        16       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL           2943               2876.0
+```
+| vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
+|---|---|---|---|---|---|
+| ram_sync_tdp_abc_rf.vhd | 8 | 6 | 0 | 1. | A3PE600 |
+
+**SYNTHESYS ERROR** 
+```
+Cannot map mem_array_1_tile[8:0] due to multiple write clocks. 
+```
+| vhdl | DATA_WIDTH | ADDR_WIDTH | DO_REG | Software | Device |
+|---|---|---|---|---|---|
+| ram_sync_tdp_abc_rf.vhd | 8 | 6 | 1 | 1. | A3PE600 |
+
+**SYNTHESYS ERROR** 
+```
+Cannot map mem_array_1_tile[8:0] due to multiple write clocks. 
+```
+
+<br>
+
 ### Note
 The Actel (Microsemi) RAM512x18 is a two port RAM and supports the following features:
 - Variable aspect ratios of 512x9 or 256x18
