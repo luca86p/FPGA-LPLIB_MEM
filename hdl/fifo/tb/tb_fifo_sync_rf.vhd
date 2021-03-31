@@ -104,6 +104,13 @@ architecture beh of tb is
     signal data_cnt     : std_logic_vector(ADDR_WIDTH-1 downto 0);
     
     
+    -- Check Array (High level FIFO)
+    -- ----------------------------------------
+    constant check_len  : integer := 100;
+    type t_check_v is array (0 to check_len-1) of integer;
+    signal check_v      : t_check_v;
+
+
     -- Procedures
     -- ----------------------------------------
     type str_ptr is access string;
@@ -124,19 +131,19 @@ architecture beh of tb is
         variable msg_ptr : in str_ptr
     ) is
     begin
-        wait for 0 ns; -- trick to update signals
+        -- wait for 0 ns; -- trick to update signals
         write(OUTPUT, ">>> " & msg_ptr.all);
         write(OUTPUT, ">>> VHDL time now " & time'image(now) & LF);
     end procedure print_msg;
 
-    procedure check_slv_uint (
+    procedure check_uint_slv (
         constant i : in integer;
         signal slv : in std_logic_vector;
         signal err_counter : inout integer
         ) is
     variable msg_ptr : str_ptr;
     begin
-        wait for 0 ns; -- trick to update signals
+        -- wait for 0 ns; -- trick to update signals
         if TO_INTEGER(unsigned(slv)) /= i then
             msg_ptr     := new string'(
                 "ERROR: expected " & integer'image(i) &
@@ -151,7 +158,7 @@ architecture beh of tb is
             );
             print_msg(msg_ptr);
         end if;               
-    end procedure check_slv_uint;
+    end procedure check_uint_slv;
 
 
 
@@ -205,6 +212,38 @@ begin
         aempty          => aempty           ,
         data_cnt        => data_cnt         
     );
+
+
+
+
+    -- Check Process
+    -- ---------------------------------------- 
+    proc_check: process(rst,clk)
+        variable i_wr       : integer := 0;
+        variable i_rd       : integer := 0;
+        variable check_next : integer := 0;
+    begin
+        if rst=RST_POL then
+            check_v     <= (others=>0);
+            i_wr        := 0;
+            i_rd        := 0;
+            check_next  := 0;
+        elsif rising_edge(clk) then
+            if wr='1' and full='0' then
+                check_v(i_wr) <= TO_INTEGER(unsigned(wrdata));
+                i_wr        := (i_wr+1) mod check_len;
+            end if;
+            --
+            if check_next=1 then
+                check_uint_slv(check_v(i_rd), rddata, check_err_counter);
+                i_rd        := (i_rd+1) mod check_len;
+                check_next  := 0;
+            end if;
+            if rd='1' and empty='0' then
+                check_next  := 1;
+            end if;
+        end if;
+    end process proc_check;
 
 
 
@@ -266,10 +305,6 @@ begin
         for i in 0 to (2**ADDR_WIDTH+10) loop
             rd          <= '1';
             wait until rising_edge(clk);
-            if empty='0' then
-                wait until falling_edge(clk); -- check in the middle of clock 
-                check_slv_uint(i+10, rddata, err_counter);
-            end if;
         end loop;
         rd          <= '0';
         --
