@@ -13,4 +13,5 @@
 # ------------------------------------------------------------------------------
 ../hdl/fifo/tb/tb_fifo_sync_rf.vhd
 ../hdl/fifo/tb/tb_fifo_sync_rf_source_sink.vhd
+#../hdl/fifo/tb/tb_fifo_sync_rf_cascaded.vhd
 

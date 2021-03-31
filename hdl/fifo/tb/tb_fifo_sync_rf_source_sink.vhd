@@ -110,7 +110,7 @@ architecture beh of tb is
   
     -- Sink
     -- ----------------------------------------
-    signal valid_rddata     : std_logic; -- after rf_rd and not empty 
+    -- signal valid_rddata     : std_logic; -- after rf_rd and not empty 
 
 
     -- Check Array (High level FIFO)
@@ -226,14 +226,11 @@ begin
     -- ---------------------------------------- 
     proc_source: process(rst,clk)
         variable i          : integer := 0;
-        variable check_i    : integer := 0;
     begin
         if rst=RST_POL then
             i           := 0;
             rf_wr       <= '0';
             rf_wrdata   <= (others=>'0');
-            check_v     <= (others=>0);
-            check_i     := 0;
             hold_wrdata <= '0';
         elsif rising_edge(clk) then
             i           := (i + 1) mod 2**DATA_WIDTH;
@@ -241,8 +238,6 @@ begin
                 if rf_full='0' and rf_wr='0' then
                     rf_wr       <= '1';
                     rf_wrdata   <= std_logic_vector(TO_UNSIGNED(i, DATA_WIDTH));
-                    check_v(check_i) <= i;
-                    check_i     := (check_i+1) mod check_len;
                 else
                     rf_wr       <= '0';
                 end if;
@@ -250,8 +245,6 @@ begin
                 if rf_full='0' and rf_wr='0' then
                     rf_wr       <= '1';
                     rf_wrdata   <= std_logic_vector(TO_UNSIGNED(i, DATA_WIDTH));
-                    check_v(check_i) <= i;
-                    check_i     := (check_i+1) mod check_len;
                 else
                     rf_wr       <= '0';
                 end if;
@@ -260,8 +253,6 @@ begin
                 if rf_full='0' and rf_wr='0' and (i mod 5)=0 then
                     rf_wr       <= '1';
                     rf_wrdata   <= std_logic_vector(TO_UNSIGNED(i, DATA_WIDTH));
-                    check_v(check_i) <= i;
-                    check_i     := (check_i+1) mod check_len;
                 else
                     rf_wr       <= '0';
                 end if;
@@ -271,8 +262,6 @@ begin
                     if hold_wrdata='0' then
                         -- can write new data
                         rf_wrdata   <= std_logic_vector(TO_UNSIGNED(i, DATA_WIDTH));
-                        check_v(check_i) <= i;
-                        check_i     := (check_i+1) mod check_len;
                     else -- rf_wrdata is already buffered
                         hold_wrdata <= '0';
                     end if;
@@ -286,8 +275,6 @@ begin
                 if rf_full='0' and rf_wr='0' then
                     rf_wr       <= '1';
                     rf_wrdata   <= std_logic_vector(TO_UNSIGNED(i, DATA_WIDTH));
-                    check_v(check_i) <= i;
-                    check_i     := (check_i+1) mod check_len;
                 else
                     rf_wr       <= '0';
                 end if;
@@ -297,8 +284,6 @@ begin
                     if hold_wrdata='0' then
                         -- can write new data
                         rf_wrdata   <= std_logic_vector(TO_UNSIGNED(i, DATA_WIDTH));
-                        check_v(check_i) <= i;
-                        check_i     := (check_i+1) mod check_len;
                     else -- rf_wrdata is already buffered
                         hold_wrdata <= '0';
                     end if;
@@ -325,13 +310,12 @@ begin
         if rst=RST_POL then
             i           := 0;
             rf_rd       <= '0';
-            check_i     := 0;
-            valid_rddata <= '0'; 
+            -- valid_rddata <= '0'; 
         elsif rising_edge(clk) then
             i           := (i + 1) mod 2**DATA_WIDTH;
             -- rd control
             -- default
-            valid_rddata <= rf_rd;
+            -- valid_rddata <= rf_rd;
             --
             if tcase=1 then -- 2-clock read
                 if rf_empty='0' and rf_rd='0' then
@@ -363,7 +347,7 @@ begin
                     rf_rd       <= '1';
                 elsif rf_empty='1' then
                     if rf_rd='1' then
-                        valid_rddata <= '0';
+                        -- valid_rddata <= '0';
                     end if;
                     rf_rd       <= '0';
                 end if;
@@ -372,21 +356,46 @@ begin
                     rf_rd       <= '1';
                 elsif rf_empty='1' then
                     if rf_rd='1' then
-                        valid_rddata <= '0';
+                        -- valid_rddata <= '0';
                     end if;
                     rf_rd       <= '0';
                 end if;
             else -- other test cases
                 rf_rd       <= '0';
-                valid_rddata <= '0';
-            end if;
-            -- rd check cycle
-            if valid_rddata='1' then
-                check_uint_slv(check_v(check_i), rf_rddata, check_err_counter);
-                check_i     := (check_i+1) mod check_len;
             end if;
         end if;
     end process proc_sink;
+
+
+
+    -- Check Process
+    -- ---------------------------------------- 
+    proc_check: process(rst,clk)
+        variable i_wr       : integer := 0;
+        variable i_rd       : integer := 0;
+        variable check_next : integer := 0;
+    begin
+        if rst=RST_POL then
+            check_v     <= (others=>0);
+            i_wr        := 0;
+            i_rd        := 0;
+            check_next  := 0;
+        elsif rising_edge(clk) then
+            if rf_wr='1' and rf_full='0' then
+                check_v(i_wr) <= TO_INTEGER(unsigned(rf_wrdata));
+                i_wr        := (i_wr+1) mod check_len;
+            end if;
+            --
+            if check_next=1 then
+                check_uint_slv(check_v(i_rd), rf_rddata, check_err_counter);
+                i_rd        := (i_rd+1) mod check_len;
+                check_next  := 0;
+            end if;
+            if rf_rd='1' and rf_empty='0' then
+                check_next  := 1;
+            end if;
+        end if;
+    end process proc_check;
 
 
 
