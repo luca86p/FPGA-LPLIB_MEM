@@ -30,3 +30,4 @@
 # -- find ../hdl/fifo -type f
 # ------------------------------------------------------------------------------
 ../hdl/fifo/rtl/fifo_sync_rf.vhd
+../hdl/fifo/rtl/fifo_sync_wf.vhd
