@@ -4,12 +4,13 @@
 
 # -- find ../hdl/ram -type f | grep tb_
 # ------------------------------------------------------------------------------
-../hdl/ram/tb/tb_ram_sp.vhd
-../hdl/ram/tb/tb_ram_sdp_sc.vhd
+#../hdl/ram/tb/tb_ram_sp.vhd
+#../hdl/ram/tb/tb_ram_sdp_sc.vhd
 
 
 
 # -- find ../hdl/fifo -type f | grep tb_
 # ------------------------------------------------------------------------------
-#../hdl/fifo/tb/tb_fifo_sync.vhd
+../hdl/fifo/tb/tb_fifo_sync_rf.vhd
+../hdl/fifo/tb/tb_fifo_sync_rf_source_sink.vhd
 
