@@ -1,0 +1,17 @@
+{
+  "head": {
+    "text": [ "tspan",
+          ["tspan", {"class": "h5"}, "ram_sync_sp_rf.vhd"],
+          ["tspan", {"class": "h6"}, "    DO_REG=0"]
+    ]
+  },
+  "signal": [
+    {"name": "rst",  "wave": "01........."},
+    {"name": "clk",  "wave": "p.........."},
+    {"name": "addr", "wave": "x22........", "data": [" ","A"]},
+    {"name": "re",   "wave": "x0.10.1010."},
+    {"name": "we",   "wave": "x010..10..."},
+    {"name": "di",   "wave": "x252..62...", "data": [" ","D1"," ","D2"]},
+    {"name": "do",   "wave": "x...5....6.", "data": ["D1","D2",]}
+  ]
+}
