@@ -31,3 +31,4 @@
 # ------------------------------------------------------------------------------
 ../hdl/fifo/rtl/fifo_sync_rf.vhd
 ../hdl/fifo/rtl/fifo_sync_wf.vhd
+../hdl/fifo/rtl/fifo_sync_rf_ready.vhd
