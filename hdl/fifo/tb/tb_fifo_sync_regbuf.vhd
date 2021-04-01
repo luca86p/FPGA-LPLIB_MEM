@@ -20,6 +20,7 @@
 -- Dependencies
 --
 --  lplib_mem.fifo_sync_regbuf(rtl)
+--  lplib_mem.fifo_sync_regbuf_multi(rtl)
 -- 
 -- -----------------------------------------------------------------------------
 -- Issues
@@ -220,10 +221,28 @@ begin
     a_rd        <= (not b_full) and (not a_empty);
     b_wr        <= (not b_full) and (not a_empty);
 
-    i_fifo_sync_regbuf_b: entity lplib_mem.fifo_sync_regbuf(rtl)
+    -- i_fifo_sync_regbuf_b: entity lplib_mem.fifo_sync_regbuf(rtl)
+    -- generic map (
+    --     RST_POL         => '0'              ,
+    --     DATA_WIDTH      => DATA_WIDTH       
+    -- )
+    -- port map (
+    --     clk             => clk              ,
+    --     rst             => rst              ,
+    --     clear           => clear            ,
+    --     wr              => b_wr             ,
+    --     wrdata          => b_wrdata         ,
+    --     rd              => b_rd             ,
+    --     rddata          => b_rddata         ,
+    --     full            => b_full           ,
+    --     empty           => b_empty            
+    -- );
+
+    i_fifo_sync_regbuf_b: entity lplib_mem.fifo_sync_regbuf_multi(rtl)
     generic map (
         RST_POL         => '0'              ,
-        DATA_WIDTH      => DATA_WIDTH       
+        DATA_WIDTH      => DATA_WIDTH       ,
+        NSTAGE          => 4
     )
     port map (
         clk             => clk              ,
