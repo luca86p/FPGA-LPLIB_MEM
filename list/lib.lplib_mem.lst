@@ -34,3 +34,5 @@
 ../hdl/fifo/rtl/fifo_sync_rf_ready.vhd
 ../hdl/fifo/rtl/fifo_sync_regbuf.vhd
 ../hdl/fifo/rtl/fifo_sync_regbuf_multi.vhd
+../hdl/fifo/rtl/data_pack.vhd
+../hdl/fifo/rtl/data_unpack.vhd
