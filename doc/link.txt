@@ -1,0 +1,15 @@
+RAM
+https://www.xilinx.com/support/documentation/user_guides/ug473_7Series_Memory_Resources.pdf
+https://www.microsemi.com/document-portal/doc_view/129966-inferring-microsemi-smartfusion2-ram-blocks-app-note
+https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/ug/ug_ram_rom.pdf
+https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/ug/ug_ram.pdf
+http://www.latticesemi.com/-/media/LatticeSemi/Documents/ApplicationNotes/MP2/FPGA-TN-02002-1-7-Memory-Usage-Guide-for-iCE40-Devices.ashx?document_id=47775
+http://www.ee.ic.ac.uk/pcheung/teaching/ee2_digital/Lecture%2014%20-%20FPGA%20Embedded%20Memory.pdf
+http://application-notes.digchip.com/056/56-39939.pdf
+https://www.xilinx.com/support/documentation/user_guides/ug474_7Series_CLB.pdf
+
+
+FIFO
+https://www.xilinx.com/support/documentation/ip_documentation/fifo_generator/v12_0/pg057-fifo-generator.pdf
+https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/ug/ug_fifo.pdf
+
