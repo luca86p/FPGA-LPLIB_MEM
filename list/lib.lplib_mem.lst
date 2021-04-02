@@ -36,3 +36,8 @@
 ../hdl/fifo/rtl/fifo_sync_regbuf_multi.vhd
 ../hdl/fifo/rtl/data_pack.vhd
 ../hdl/fifo/rtl/data_unpack.vhd
+
+
+# -- find ../hdl/rom -type f
+# ------------------------------------------------------------------------------
+../hdl/rom/rtl/rom_sin_32x8.multi_arch.vhd
