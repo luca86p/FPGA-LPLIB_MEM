@@ -1,0 +1,43 @@
+$ octave --no-gui q_fun_lut.m
+octave: X11 DISPLAY environment variable not set
+octave: disabling GUI features
+
+selfun : 1
+c2balanced : 0
+b_x : 3
+b_y : 4
+
+  -4 =>      0 ,
+  -3 =>     -5 ,
+  -2 =>     -7 ,
+  -1 =>     -5 ,
+   0 =>      0 ,
+   1 =>      5 ,
+   2 =>      7 ,
+   3 =>      5 ,
+
+$ octave --no-gui q_fun_lut.m
+octave: X11 DISPLAY environment variable not set
+octave: disabling GUI features
+
+selfun : 1
+c2balanced : 0
+b_x : 4
+b_y : 4
+
+  -8 =>      0 ,
+  -7 =>     -3 ,
+  -6 =>     -5 ,
+  -5 =>     -6 ,
+  -4 =>     -7 ,
+  -3 =>     -6 ,
+  -2 =>     -5 ,
+  -1 =>     -3 ,
+   0 =>      0 ,
+   1 =>      3 ,
+   2 =>      5 ,
+   3 =>      6 ,
+   4 =>      7 ,
+   5 =>      6 ,
+   6 =>      5 ,
+   7 =>      3 ,
